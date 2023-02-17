@@ -2,11 +2,11 @@
 
  @section('content')
  <div class="container-fluid">
-	<h1 class="title">Unidades Administrativas</h1>
-	<h2 class="subtitle">Nueva Unidad Administrativa</h2>
+	<h1 class="title">Nuevo usuario</h1>
+	
 </div>
 
-<div class="container">
+<div class="container" style="margin-top:30px">
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-4">
           <label for="validationCustom01" class="form-label">Nombre</label>
@@ -46,8 +46,8 @@
                 La contraseña debe ser identica.
             </div>
           </div>
-        <div class="col-12">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Alta</button>
+        <div class="justify-content-md-center">
+          <button class="btn btn-primary " style="margin-bottom:10px" data-bs-toggle="modal" data-bs-target="#exampleModal">Alta</button>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
