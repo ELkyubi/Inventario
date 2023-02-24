@@ -34,31 +34,27 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="a3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Unidades administrativas</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Nuevo</a></li>
-              <li><a class="dropdown-item" href="#">Dar de baja</a></li>
-              <li><a class="dropdown-item" href="#">Actualizar</a></li>
+              <li><a class="dropdown-item" href="/UA/altaua">Nuevo</a></li>
+              <li><a class="dropdown-item" href="/UA/bajaua">Dar de baja</a></li>
+              <li><a class="dropdown-item" href="/UA/actuua">Actualizar</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Lista</a></li>
+              <li><a class="dropdown-item" href="/UA/listaua">Lista</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="a4" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categorias</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Nuevo</a></li>
-              <li><a class="dropdown-item" href="#">Dar de baja</a></li>
-              <li><a class="dropdown-item" href="#">Actualizar</a></li>
+              <li><a class="dropdown-item" href="/UA/altacategoria">Nuevo</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Lista</a></li>
+              <li><a class="dropdown-item" href="/UA/listacategoria">Lista</a></li>
             </ul>
-          </li>
+          </li> 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="a5"data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Productos</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Nuevo</a></li>
-              <li><a class="dropdown-item" href="#">Dar de baja</a></li>
-              <li><a class="dropdown-item" href="#">Actualizar</a></li>
+              <li><a class="dropdown-item" href="/UA/altaproducto">Nuevo</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Lista</a></li>
+              <li><a class="dropdown-item" href="/UA/listaproducto">Lista</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Buscar por Nombre</a></li>
               <li><a class="dropdown-item" href="#">Filtrar por Unidad administrativa</a></li>
