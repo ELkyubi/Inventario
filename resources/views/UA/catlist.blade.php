@@ -11,35 +11,25 @@
         <th scope="col">Nombre</th>
         <th scope="col">Descripción</th>
         <th scope="col">Productos</th>
-        <th scope="col">Opciones</th>
+        <th scope="col2">Opciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Papeleria</td>
-        <td>Articulos varios de papeleria como borradores, lapices y sacapuntas.</td>
-        <td><button typer="button" class="btn btn-primary">Ver productos</button></td>
-        <td><button typer="button" class="btn btn-primary">Modificar</button></td>
-        <td><button typer="button" class="btn btn-danger">Eliminar</button></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Muebleria</td>
-        <td>Articulos mobiliarios como mesas, sillas y casilleros.</td>
-        <td><button typer="button" class="btn btn-primary">Ver productos</button></td>
-        <td><button typer="button" class="btn btn-primary">Modificar</button></td>
-        <td><button typer="button" class="btn btn-danger">Eliminar</button></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Informatica</td>
-        <td>Articulos tecnoloficos como mouses, teclados, monitores y pc.</td>
-        <td><button typer="button" class="btn btn-primary">Ver productos</button></td>
-        <td><button typer="button" class="btn btn-primary">Modificar</button></td>
-        <td><button typer="button" class="btn btn-danger">Eliminar</button></td>
-      </tr>
+      @foreach ($categories as $category )
+        <tr>
+          <th scope="row">{{ $category->id }}</th>
+          <td>{{ $category->categoria_nombre }}</td>
+          <td>{{ $category->categoria_descripcion }}</td>
+          <td>
 
+            <button typer="button" class="btn btn-primary">ver productos</button></td>
+          </td>
+          <td>
+            <a href="/UA/listacategoria/{{$category->id}}/edit" typer="button" class="btn btn-primary">Modificar</a>
+            
+          <td><button typer="button" class="btn btn-danger">Eliminar</button></td>
+        </tr>
+      @endforeach
     </tbody>
   </table>
   <div class="btn-toolbar justify-content-md-center" role="toolbar" aria-label="Toolbar with button groups">

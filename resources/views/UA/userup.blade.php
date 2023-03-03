@@ -7,7 +7,7 @@
 </div>
 
 <div class="container" style="margin-top:30px">
-    <form class="row g-3 needs-validation" novalidate>
+    <form action="{{ route('usuarios.store') }}" method="POST" class="row g-3 needs-validation" novalidate >
         <div class="col-md-4">
           <label for="validationCustom01" class="form-label">Nombre</label>
           <input type="text" class="form-control" id="validationCustom01" required>

@@ -25,8 +25,6 @@
             <a class="nav-link dropdown-toggle" id="a2" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Usuarios</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/UA/altausuario">Nuevo</a></li>
-              <li><a class="dropdown-item" href="/UA/bajausuario">Dar de baja</a></li>
-              <li><a class="dropdown-item" href="/UA/actusuario">Actualizar</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/UA/listausuario">Lista</a></li>
             </ul>
@@ -35,8 +33,6 @@
             <a class="nav-link dropdown-toggle" id="a3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Unidades administrativas</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/UA/altaua">Nuevo</a></li>
-              <li><a class="dropdown-item" href="/UA/bajaua">Dar de baja</a></li>
-              <li><a class="dropdown-item" href="/UA/actuua">Actualizar</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/UA/listaua">Lista</a></li>
             </ul>

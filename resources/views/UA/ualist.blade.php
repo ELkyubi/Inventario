@@ -11,28 +11,26 @@
         <th scope="col">Unidad administrativa</th>
         <th scope="col">Ubicación</th>
         <th scope="col">Encargado</th>
+        <th scope="col">Productos</th>
+        <th scope="col=2">Opciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>informatica</td>
-        <td>Campeche</td>
-        <td>Marco</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Recursos humanos</td>
-        <td>Campeche</td>
-        <td>Paul</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Dirección general</td>
-        <td>Campeche</td>
-        <td>Raúl</td>
-      </tr>
+      @foreach ($uas as $ua )
+        <tr>
+          <th scope="row">{{ $ua->id }}</th>
+          <td>{{ $ua->ua_nombre }}</td>
+          <td>{{ $ua->ua_ubicacion }}</td>
+          <td>{{ $ua->ua_encargado }}</td>
+          <td>
 
+            <button typer="button" class="btn btn-primary">ver productos</button></td>
+          </td>
+          <td>
+            <a href="/UA/listaua/{{$ua->id}}/edit" typer="button" class="btn btn-primary">Modificar</a>
+          <td><button typer="button" class="btn btn-danger">Eliminar</button></td>
+        </tr>
+      @endforeach
     </tbody>
   </table>
   <div class="btn-toolbar justify-content-md-center" role="toolbar" aria-label="Toolbar with button groups">

@@ -2,23 +2,24 @@
 
 @section('content')
 <div class="container-fluid">
-   <h1 class="title">Nueva Categoria</h1>
+   <h1 class="title">Modificar categoria</h1>
    
 </div>
 
 <div class="container" style="margin-top:30px">
    <form  method="POST" class="row g-3 needs-validation" validate>
    @csrf
+   @method('put')
     <div class="col-md-12">
          <label for="validationCustom01" class="form-label">Nombre</label>
-         <input type="text" name="categoria_nombre" class="form-control" id="validationCustom01" required>
+         <input type="text" name="categoria_nombre" class="form-control" value="{{ $category->categoria_nombre }}" id="validationCustom01" required>
          <div class="valid-feedback">
            Looks good!
          </div>
        </div>
        <div class="col-md-12">
          <label for="validationCustom02" class="form-label">Descripción</label>
-         <textarea type="text" name="categoria_descripcion" rows="5"class="form-control" id="validationCustom02" required></textarea>
+         <textarea type="text" name="categoria_descripcion" rows="5"class="form-control" id="validationCustom02" required>{{ $category->categoria_descripcion }}</textarea>
          <div class="valid-feedback">
            Looks good!
          </div>
@@ -37,7 +38,7 @@
                </div>
                <div class="modal-footer">
                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                 <button type="submit" onsubmit="{{ route('cat.store') }}"  class="btn btn-primary">Save changes</button>
+                 <button type="submit" onsubmit="{{ route('cat.update', $category) }}"  class="btn btn-primary">Save changes</button>
                </div>
              </div>
            </div>

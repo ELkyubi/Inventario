@@ -11,6 +11,11 @@ class userdatacontroller extends Controller
         return view('ua.index');
     }
 
+    public function store(){
+
+        
+    }
+
     public function create(){
         return view('ua.userup');
     }
