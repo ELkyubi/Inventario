@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\home;
+use App\Http\Controllers\userdatacontroller;
+use App\Http\Controllers\categoriescontroller;
+use App\Http\Controllers\uacontroller;
+use App\Http\Controllers\productcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,67 +18,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
+Route::get('/', home::class);
+
+
+Route::controller(userdatacontroller::class)->group(function () {
+    Route::get('/UA', 'index');
+    Route::get('/UA/altausuario', 'create');
+    Route::get('/UA/listausuario', 'show');
 });
 
-
-
-
-
-
-Route::get('/UA', function () {
-    return view('ua.index');
+Route::controller(categoriescontroller::class)->group(function () {
+    Route::get('/UA/altacategoria', 'create');
+    Route::get('/UA/listacategoria', 'show');
 });
 
-Route::get('/UA/altausuario', function () {
-    return view('ua.userup');
+Route::controller(uacontroller::class)->group(function(){
+    Route::get('/UA/altaua', 'create');
+    Route::get('/UA/listaua', 'show');
 });
 
-Route::get('/UA/bajausuario', function () {
-    return view('ua.userdown');
-});
-
-Route::get('/UA/actusuario', function () {
-    return view('ua.userupdate');
-});
-
-Route::get('/UA/listausuario', function () {
-    return view('ua.userlist');
-});
-
-Route::get('/UA/altaua', function () {
-    return view('ua.uaup');
-});
-
-Route::get('/UA/bajaua', function () {
-    return view('ua.uadown');
-});
-
-
-Route::get('/UA/actuua', function () {
-    return view('ua.uaupdate');
-});
-
-Route::get('/UA/listaua', function () {
-    return view('ua.ualist');
-});
-
-Route::get('/UA/altacategoria', function () {
-    return view('ua.catup');
-});
-
-
-Route::get('/UA/listacategoria', function () {
-    return view('ua.catlist');
-});
-
-Route::get('/UA/altaproducto', function () {
-    return view('ua.productup');
-});
-
-Route::get('/UA/listaproducto', function () {
-    return view('ua.productlist');
+Route::controller(productcontroller::class)->group(function(){
+    Route::get('/UA/altaproducto', 'create');
+    Route::get('/UA/listaproducto', 'show');
 });
 
 

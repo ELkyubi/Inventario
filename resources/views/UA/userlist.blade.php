@@ -14,27 +14,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-
-     
-
-
+      @foreach ($users as $user)
+          <tr>
+            <th scope="row">{{ $user->usuario_id }}</th>
+            <td>{{ $user->usuario_nombre}}</td>
+            <td>{{ $user->usuario_apellido}}</td>
+            <td>{{ $user->usuario_usuario}}</td>
+          </tr>
+      @endforeach
     </tbody>
     
   </table>
