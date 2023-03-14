@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class categoriescontroller extends Controller
 {   
@@ -19,7 +20,11 @@ class categoriescontroller extends Controller
     }
 
     public function create(){
-        return view('ua.catup');
+        if(Auth::check()){
+            return view('ua.catup');
+        }
+        return redirect('/UA');
+       
     }
 
     public function show(){

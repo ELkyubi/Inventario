@@ -8,18 +8,16 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
         <th scope="col">Nombre de usuario</th>
+        <th scope="col">Nombre</th>
       </tr>
     </thead>
     <tbody>
       @foreach ($users as $user)
           <tr>
-            <th scope="row">{{ $user->usuario_id }}</th>
+            <th scope="row">{{ $user->id }}</th>
+            <td>{{ $user->username}}</td>
             <td>{{ $user->usuario_nombre}}</td>
-            <td>{{ $user->usuario_apellido}}</td>
-            <td>{{ $user->usuario_usuario}}</td>
           </tr>
       @endforeach
     </tbody>

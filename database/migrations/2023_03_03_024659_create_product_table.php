@@ -13,7 +13,18 @@ return new class extends Migration
     {
         Schema::create('product', function (Blueprint $table) {
             $table->id();
-            $table->string('producto_nombre');
+            $table->string('nombre');
+            $table->integer('stock');
+            $table->set('unidades',['Pieza','Docena','Paquete','Caja']);
+            $table->string('foto', 500);
+            $table->foreignId('ua_id')->constrained('unidad_administrativa')->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->foreignId('cat_id')->constrained('categoria')->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->date('fech_ingr');
+            $table->date('fech_egr')->nullable();
+            $table->longtext('observacion');
+            $table->set('estado',['Activo','Baja'])->default('Activo');
             $table->timestamps();
         });
     }

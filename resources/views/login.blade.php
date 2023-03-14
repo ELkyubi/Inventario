@@ -20,9 +20,10 @@
           </div>
       
           <!-- Login Form -->
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Nombre de usuario">
-            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
+          <form onsubmit="{{ route('home.login') }}" method="POST">
+            @csrf
+            <input type="text" id="login" class="fadeIn second" name="username" placeholder="Nombre de usuario">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña">
             <input type="submit" class="fadeIn fourth" value="Log In">
           </form>
       

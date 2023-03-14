@@ -1,9 +1,20 @@
 @extends('home')
 
 @section('content')
+@auth
 <div class="container-fluid">
-    <h1 class="title">Inicio</h1>
-    <h2 class="sybtitle">¡Bienvenido *Nombre de usuario*!</h2>
+  <h1 class="title">Inicio</h1>
+  <h2 class="subtitle">¡Bienvenido {{ auth()->user()->username }}!</h2>
 
-  </div>
+</div>
+@endauth
+@guest
+<div class="container-fluid">
+  <h1 class="title">Inicio</h1>
+  <h2 class="subtitle">¡Ingresa para desbloquear mas cosas!</h2>
+
+</div>
+@endguest
+
+
 @endsection
