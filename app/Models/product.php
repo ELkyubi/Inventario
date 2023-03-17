@@ -9,4 +9,13 @@ class product extends Model
 {
     use HasFactory;
     protected $table = "product";
+
+    public function category(){
+        return $this->belongsTo(category::class,'cat_id','id');
+    }
+
+    public function ua(){
+        return $this->belongsTo(ua::class, 'ua_id','id');
+    }
+   
 }

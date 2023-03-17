@@ -55,6 +55,12 @@ Route::controller(uacontroller::class)->group(function(){
 Route::controller(productcontroller::class)->group(function(){
     Route::get('/UA/altaproducto', 'create');
     Route::get('/UA/listaproducto', 'show');
+    Route::post('/UA/altaproducto', 'store')->name('product.store');
+    Route::get('/UA/filtrocategoria','filt_cat');
+    Route::get('/UA/filtrocategoria/{category}','fetch_cat')->name('product.fetch');
+    Route::get('/UA/filtroua','filt_ua');
+    Route::get('/UA/filtroua/{ua}','fetch_ua');
+
 });
 
 

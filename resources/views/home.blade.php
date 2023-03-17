@@ -54,8 +54,8 @@
               <li><a class="dropdown-item" href="/UA/listaproducto">Lista</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Buscar por Nombre</a></li>
-              <li><a class="dropdown-item" href="#">Filtrar por Unidad administrativa</a></li>
-              <li><a class="dropdown-item" href="#">Filtrar por Categoria</a></li>
+              <li><a class="dropdown-item" href="/UA/filtroua">Filtrar por Unidad administrativa</a></li>
+              <li><a class="dropdown-item" href="/UA/filtrocategoria">Filtrar por Categoria</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

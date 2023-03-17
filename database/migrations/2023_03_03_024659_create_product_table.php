@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->integer('stock');
             $table->set('unidades',['Pieza','Docena','Paquete','Caja']);
-            $table->string('foto', 500);
+            $table->string('foto', 500)->nullable()->default('/Images/Conalep-logo.png');
             $table->foreignId('ua_id')->constrained('unidad_administrativa')->onUpdate('cascade')
             ->onDelete('cascade');
             $table->foreignId('cat_id')->constrained('categoria')->onUpdate('cascade')

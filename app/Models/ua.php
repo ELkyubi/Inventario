@@ -9,4 +9,9 @@ class ua extends Model
 {
     use HasFactory;
     protected $table = "unidad_administrativa";
+
+    
+    public function products(){
+        return $this->hasMany(product::class, 'ua_id', 'id');
+    }
 }
