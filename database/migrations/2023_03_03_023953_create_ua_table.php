@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('unidad_administrativa', function (Blueprint $table) {
             $table->id();
             $table->string('ua_nombre');
-            $table->string('ua_ubicacion');
-            $table->string('ua_encargado');
+            $table->string('ua_ubicacion')->nullable();
+            $table->string('ua_encargado')->nullable();
             $table->timestamps();
         });
     }

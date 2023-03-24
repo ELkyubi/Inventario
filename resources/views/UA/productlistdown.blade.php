@@ -4,12 +4,9 @@
     <div class="container">
       <!--Section: Content-->
       <section class="text-center text-md-start">
-        <h1 class="mb-5"><strong>Productos</strong></h1>
+        <h1 class="mb-5"><strong>Productos en baja</strong></h1>
         @foreach ( $products as $product)
             <!-- Post -->
-            <form method="POST">
-              @csrf
-              @method('put')
         <div class="row">
             <div class="col-md-4 mb-4">
               <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
@@ -31,6 +28,12 @@
               </p>
   
               <a type="button" href="/UA/listaproducto/{{ $product->id }}/edit" class="btn btn-primary">Modificar</a>
+                <form method="POST">
+                    @csrf
+                    @method('put')
+                    
+                <a type="button" href="/UA/listaproducto/{{ $product->id }}/activar" class="btn btn-warning">Activar</a>
+                </form>
             </div>
           </div>
         @endforeach

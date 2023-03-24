@@ -52,20 +52,15 @@
               <li><a class="dropdown-item" href="/UA/altaproducto">Nuevo</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/UA/listaproducto">Lista</a></li>
+              <li><a class="dropdown-item" href="/UA/listaproductobajas">Lista de bajas</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Buscar por Nombre</a></li>
               <li><a class="dropdown-item" href="/UA/filtroua">Filtrar por Unidad administrativa</a></li>
               <li><a class="dropdown-item" href="/UA/filtrocategoria">Filtrar por Categoria</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="a6" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Reportes</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">General</a></li>
-              <li><a class="dropdown-item" href="#">Por categoria</a></li>
-              <li><a class="dropdown-item" href="#">Por Unidad administrativa</a></li>
-              <li><a class="dropdown-item" href="#">Por fecha</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page"  id="a1" href="/UA/reportes">Reportes</a>
           </li>
         </ul>
         <form class="d-flex">

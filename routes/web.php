@@ -9,6 +9,7 @@ use App\Http\Controllers\uacontroller;
 use App\Http\Controllers\productcontroller;
 use App\Http\Controllers\login_con;
 use App\Http\Controllers\logot_con;
+use App\Http\Controllers\pdfcontroler;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,13 +55,24 @@ Route::controller(uacontroller::class)->group(function(){
 
 Route::controller(productcontroller::class)->group(function(){
     Route::get('/UA/altaproducto', 'create');
-    Route::get('/UA/listaproducto', 'show');
+    Route::get('/UA/listaproducto', 'show')->name('product.show');
+    Route::get('/UA/listaproductobajas', 'showdown')->name('product.showdown');
     Route::post('/UA/altaproducto', 'store')->name('product.store');
+    Route::put('/UA/listaproducto', 'down')->name('product.down');
+    Route::get('/UA/listaproducto/{product}/edit', 'edit')->name('product.edit');
+    Route::put('/UA/listaproducto/{product}/edit', 'update')->name('product.update');
     Route::get('/UA/filtrocategoria','filt_cat');
     Route::get('/UA/filtrocategoria/{category}','fetch_cat')->name('product.fetch');
     Route::get('/UA/filtroua','filt_ua');
     Route::get('/UA/filtroua/{ua}','fetch_ua');
 
+});
+
+Route::controller(pdfcontroler::class)->group(function(){
+    Route::post('/UA/reportes', 'pdfcat')->name('pdf.cat');
+    Route::get('/UA/reportes', 'index'); 
+    Route::post('/UA/reportes/ua', 'pdfua')->name('pdf.ua');
+    
 });
 
 

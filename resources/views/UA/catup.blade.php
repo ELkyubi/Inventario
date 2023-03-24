@@ -18,13 +18,13 @@
        </div>
        <div class="col-md-12">
          <label for="validationCustom02" class="form-label">Descripción</label>
-         <textarea type="text" name="categoria_descripcion" rows="5"class="form-control" id="validationCustom02" required></textarea>
+         <textarea type="text" name="categoria_descripcion" rows="5"class="form-control" id="validationCustom02" norequired></textarea>
          <div class="valid-feedback">
            Looks good!
          </div>
        </div>
        <div class="justify-content-md-center">
-         <button class="btn btn-primary " style="margin-bottom:10px" data-bs-toggle="modal" data-bs-target="#exampleModal">Alta</button>
+         <a class="btn btn-primary " style="margin-bottom:10px" data-bs-toggle="modal" data-bs-target="#exampleModal">Alta</a>
          <div class="modal fade" id="exampleModal"aria-labelledby="exampleModalLabel" aria-hidden="true">
            <div class="modal-dialog">
              <div class="modal-content">

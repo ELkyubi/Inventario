@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\categoriesrequest;
 use App\Models\category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class categoriescontroller extends Controller
 {   
-    public function store(Request $request){
-        $category= new category();
+    public function store(categoriesrequest $request){
 
-        $category->categoria_nombre = $request->categoria_nombre;
-        $category->categoria_descripcion =$request->categoria_descripcion;
+        $category= category::create($request->validated());
 
-        $category->save();
+       // $category->categoria_nombre = $request->categoria_nombre;
+        //$category->categoria_descripcion =$request->categoria_descripcion;
 
+        //$category->save();
         return redirect()->route('cat.show');
     }
 
@@ -41,9 +42,10 @@ class categoriescontroller extends Controller
         $category->categoria_nombre = $request->categoria_nombre;
         $category->categoria_descripcion =$request->categoria_descripcion;
 
-        $category->save();
+        return $category;
+        //$category->save();
 
-        return redirect()->route('cat.show');
+        //return redirect()->route('cat.show');
     }
 
 }
