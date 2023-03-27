@@ -30,7 +30,7 @@
                             <div class="d-flex flex-column mt-4"><a href="/UA/listaproducto/{{ $product->id }}/edit"  style="background-color: rgb(167, 130, 82); border-color: rgb(255, 255, 255);" class="btn btn-primary btn-sm" type="button">Modificar</a>  
                               @csrf
                               @method('DELETE')
-                              <button class="btn btn-danger btn-sm mt-2" type="submit">Eliminar</button>
+                              <button class="btn btn-danger btn-sm mt-2" style="background-color: rgb(99, 0, 0); border-color: rgb(255, 255, 255); color:aliceblue"type="submit">Eliminar</button>
                             </form></div>
                       </div>
                     </div>
@@ -40,7 +40,9 @@
             <!-- Post -->
             
         @endforeach
-          {{ $products->links() }}
+        <div class="d-flex justify-content-center">
+          {!! $products->links() !!}
+      </div>
       <!-- Pagination -->
     </div>
   </main>

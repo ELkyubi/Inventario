@@ -16,7 +16,7 @@
     </div>
   @endif
     <h2 class="success"></h2>
-</div>
+
 <table class="table">
     <thead>
       <tr>
@@ -35,13 +35,13 @@
             <td>  <form action="{{ route('user.delete', $user->id) }}" onsubmit="return confirm('¿Seguro que quiere eliminar este usuario?')" method="POST">  
                     @csrf
                     @method('DELETE')
-                    <button type="submit"  class="btn btn-danger">Eliminar</button>
+                    <button type="submit" style="background-color: rgb(99, 0, 0); border-color: rgb(255, 255, 255); color:aliceblue" class="btn btn-danger">Eliminar</button>
                   </form>
             </td>
           </tr>
       @endforeach
     </tbody>
-    
   </table>
   @endauth
+</div>
 @endsection

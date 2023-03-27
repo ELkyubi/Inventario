@@ -19,8 +19,7 @@ class login_con extends Controller
     public function login(loginrequest $request){
         $credentials = $request->getCredentials();
          if (!Auth::validate($credentials)):
-            dd('error');
-            return redirect()->to('/')->withErrors('auth.failed');
+            return redirect()->to('/')->withErrors('Autentificación fallida');
          endif;
 
          $user = Auth::getProvider()->retrieveByCredentials($credentials);

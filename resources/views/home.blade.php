@@ -64,8 +64,8 @@
         </ul>
         <form class="d-flex">
            
-          <a class="btn btn-outline-success" {{ $user=Auth::user() }} href="/UA/modificarusuario/{{ $user->id }}" >Mi cuenta</a>
-            <a class="btn btn-outline-danger" href="/logout">Salir</a>
+          <a class="btn btn-outline-success" {{ $user=Auth::user() }}  style="background-color: rgb(167, 130, 82); border-color: rgb(255, 255, 255); color:aliceblue" href="/UA/modificarusuario/{{ $user->id }}" >Mi cuenta</a>
+            <a class="btn btn-outline-danger"  style="background-color: rgb(99, 0, 0); border-color: rgb(255, 255, 255); color:aliceblue" href="/logout">Salir</a>
         </form>
       </div>
     </div>
@@ -109,7 +109,7 @@
           </li>
         </ul>
         <form class="d-flex">
-          <a class="btn btn-outline-success" href="/" type="submit">Ingresar</a>
+          <a class="btn btn-outline-success" style="background-color: rgb(167, 130, 82); border-color: rgb(255, 255, 255);" href="/" type="submit">Ingresar</a>
         </form>
       </div>
     </div>

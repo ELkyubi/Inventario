@@ -16,18 +16,25 @@ class userdatacontroller extends Controller
     }
 
     public function register(registerequest $request){
-       
+        if(Auth::check()){
             $user=User::create($request->validated());
             if($user==null){
                 return redirect('/UA/listausuario');
             }else{
                 return redirect('/UA/listausuario')->with('success','Cuenta creada de manera exitosa :D');
             }
+        }
+        return view('login');
+            
     }
     
 
     public function create(){
-        return view('ua.userup');
+        if(Auth::check()){
+            return view('ua.userup');
+        }
+        return view('login');
+        
     }
     
     public function show(){
@@ -39,26 +46,37 @@ class userdatacontroller extends Controller
     }
 
     public function edit(user $user){
-        $user=Auth::user();
-        return view('ua.usermod', compact('user'));
+        if(Auth::check()){
+            $user=Auth::user();
+            return view('ua.usermod', compact('user'));
+        }
+        return view('login');
+        
     }
 
     public function update(registerequest $request, user $user){
+        if(Auth::check()){
+            $request->validated();
 
-        $request->validated();
+            $user->username = $request->username;
+            $user->usuario_nombre = $request->usuario_nombre;
+            $user->password = $request->password;
 
-        $user->username = $request->username;
-        $user->usuario_nombre = $request->usuario_nombre;
-        $user->password = $request->password;
-
-        $user->save();
+            $user->save();
+            
+            return redirect()->route('Home');
+        }
+        return view('login');
         
-        return redirect()->route('Home');
     }
 
     public function destroy(User $user){
-        $user->delete();
-        return back()->with('success','El usuario se elimino con exito');
+        if(Auth::check()){
+            $user->delete();
+            return back()->with('success','El usuario se elimino con exito');
+        }
+        return view('login');
+        
     }
 
 }

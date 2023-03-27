@@ -10,14 +10,12 @@ use Illuminate\Support\Facades\Auth;
 class categoriescontroller extends Controller
 {   
     public function store(categoriesrequest $request){
-
-        $category= category::create($request->validated());
-
-       // $category->categoria_nombre = $request->categoria_nombre;
-        //$category->categoria_descripcion =$request->categoria_descripcion;
-
-        //$category->save();
-        return redirect()->route('cat.show');
+        if(Auth::check()){
+            $category= category::create($request->validated());
+            return redirect()->route('cat.show');
+        }
+        return view('login');
+        
     }
 
     public function create(){
@@ -34,25 +32,35 @@ class categoriescontroller extends Controller
     }
 
     public function edit(category $category){
-    
-        return view('ua.catmod', compact('category'));
+        if(Auth::check()){
+            return view('ua.catmod', compact('category'));
+        }
+        return view('login');
+        
     }
 
     public function update(categoriesrequest $request, category $category){
+        if(Auth::check()){
+            $request->validated();
 
-        $request->validated();
+            $category->categoria_nombre = $request->categoria_nombre;
+            $category->categoria_descripcion =$request->categoria_descripcion;
 
-        $category->categoria_nombre = $request->categoria_nombre;
-        $category->categoria_descripcion =$request->categoria_descripcion;
+            
+            $category->save();
 
+            return redirect()->route('cat.show');
+        }
+        return view('login');
         
-        $category->save();
-
-        return redirect()->route('cat.show');
     }
     public function destroy(category $category){
-        $category->delete();
-        return back()->with('success','La categoria se elimino con exito');
+        if(Auth::check()){
+            $category->delete();
+            return back()->with('success','La categoria se elimino con exito');
+        }
+        return view('login');
+        
     }
 
 }

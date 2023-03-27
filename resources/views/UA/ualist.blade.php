@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <h1 class="center">Lista de unidades administrativas</h1>
-</div>
+
 <table class="table">
     <thead>
       <tr>
@@ -27,22 +27,23 @@
           <td>{{ $ua->ua_encargado }}</td>
           <td>
 
-            <a typer="button" href="/UA/filtroua/{{ $ua->id }}" class="btn btn-primary">ver productos</a></td>
+            <a typer="button" href="/UA/filtroua/{{ $ua->id }}" style="background-color: rgb(167, 130, 82); border-color: rgb(255, 255, 255);" class="btn btn-primary">ver productos</a></td>
           
           @auth
           <td>
-            <a href="/UA/listaua/{{$ua->id}}/edit" typer="button" class="btn btn-primary">Modificar</a>
+            <a href="/UA/listaua/{{$ua->id}}/edit"  style="background-color: rgb(167, 130, 82); border-color: rgb(255, 255, 255);" typer="button" class="btn btn-primary">Modificar</a>
           <td><form action="{{ route('ua.delete', $ua->id) }}" onsubmit="return confirm('¿Seguro que quiere eliminar esta unidad administrativa? !Todos los productos relacionados con ella tambien desaparecerán!')" method="POST">  
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger" >Eliminar</button>
+            <button type="submit" style="background-color: rgb(99, 0, 0); border-color: rgb(255, 255, 255); color:aliceblue" class="btn btn-danger" >Eliminar</button>
           </form></td>
           </td>
           @endauth
          
         </tr>
       @endforeach
+     
     </tbody>
   </table>
-
+</div>
 @endsection

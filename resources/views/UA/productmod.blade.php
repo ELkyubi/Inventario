@@ -7,6 +7,17 @@
 </div>
 
 <div class="container container py-4 my-4 mx-auto d-flex flex-column" style="margin-top:30px">
+  @if ($errors->any())
+  <div style="margin-top:10px" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <lu>
+      @foreach ( $errors->all() as $error )
+     <li> {{ $error }} </li>
+    @endforeach
+    </lu>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  </button>
+  </div>
+@endif  
    <form class="row g-3 needs-validation"  method="POST" enctype="multipart/form-data"  novalidate>
     @csrf
     @method('put')
@@ -100,7 +111,7 @@
         </div>
       </div>
        <div class="justify-content-md-center">
-         <a class="btn btn-primary " style="margin-bottom:10px" data-bs-toggle="modal" data-bs-target="#exampleModal">Actualizar</a>
+         <a class="btn btn-primary " style="background-color: rgb(167, 130, 82); border-color: rgb(255, 255, 255);margin-bottom:10px" data-bs-toggle="modal" data-bs-target="#exampleModal">Actualizar</a>
          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
            <div class="modal-dialog">
              <div class="modal-content">
@@ -113,7 +124,7 @@
                </div>
                <div class="modal-footer">
                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                 <button type="submit" onsubmit="{{ route('product.update', $product) }}" class="btn btn-primary">Guardar cambios</button>
+                 <button type="submit" onsubmit="{{ route('product.update', $product) }}" style="background-color: rgb(167, 130, 82); border-color: rgb(255, 255, 255);" class="btn btn-primary">Guardar cambios</button>
                </div>
              </div>
            </div>

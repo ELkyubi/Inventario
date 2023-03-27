@@ -38,10 +38,14 @@
                   </div>
             </div>
         @endforeach
-          {{ $products->links() }}
+          
       <!-- Pagination -->
     </div>
+   
   </main>
+  <div class="d-flex justify-content-center">
+    {!! $products->links() !!}
+</div>
   <!--Main layout-->
 
   @endsection

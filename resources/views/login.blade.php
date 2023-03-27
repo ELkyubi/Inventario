@@ -18,6 +18,17 @@
           <div class="fadeIn first">
             <h2 id="h21">Bienvenido</h2>
           </div>
+          @if ($errors->any())
+          <div style="margin-top:10px" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <lu>
+              @foreach ( $errors->all() as $error )
+             <li> {{ $error }} </li>
+            @endforeach
+            </lu>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          </button>
+          </div>
+        @endif
       
           <!-- Login Form -->
           <form onsubmit="{{ route('home.login') }}" method="POST">
