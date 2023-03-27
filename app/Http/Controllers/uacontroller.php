@@ -45,4 +45,10 @@ class uacontroller extends Controller
         return redirect()->route('ua.show');
     }
 
+    public function destroy(ua $ua){
+
+        $ua->delete();
+        return back()->with('success','La unidad administrativa se elimino con exito');
+    }
+
 }

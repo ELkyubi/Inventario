@@ -23,7 +23,7 @@ return new class extends Migration
             ->onDelete('cascade');
             $table->date('fech_ingr');
             $table->date('fech_egr')->nullable();
-            $table->longtext('observacion');
+            $table->longtext('observacion')->nullable();
             $table->set('estado',['Activo','Baja'])->default('Activo');
             $table->timestamps();
         });

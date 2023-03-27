@@ -7,13 +7,24 @@
 </div>
 
 <div class="container" style="margin-top:30px">
-   <form  method="POST" class="row g-3 needs-validation" validate>
+  @if ($errors->any())
+  <div style="margin-top:10px" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <lu>
+      @foreach ( $errors->all() as $error )
+     <li> {{ $error }} </li>
+    @endforeach
+    </lu>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  </button>
+  </div>
+@endif
+   <form  method="POST" class="row g-3 needs-validation" novalidate>
    @csrf
     <div class="col-md-12">
          <label for="validationCustom01" class="form-label">Nombre</label>
          <input type="text" name="categoria_nombre" class="form-control" id="validationCustom01" required>
-         <div class="valid-feedback">
-           Looks good!
+         <div class="invalid-feedback">
+           Favor de otorgarle un nombre a la categoria
          </div>
        </div>
        <div class="col-md-12">
@@ -29,15 +40,15 @@
            <div class="modal-dialog">
              <div class="modal-content">
                <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">Alta de categoria</h5>
                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                 ...
+                 ¿Subir categoria?
                </div>
                <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                 <button type="submit" onsubmit="{{ route('cat.store') }}"  class="btn btn-primary">Save changes</button>
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                 <button type="submit" onsubmit="{{ route('cat.store') }}"  class="btn btn-primary">Subir</button>
                </div>
              </div>
            </div>

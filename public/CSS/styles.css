@@ -30,10 +30,19 @@ table{
     color: rgb(232,235,235);
   }
 
+  button{
+    border-color: rgb(255, 255, 255);
+  }
+
   #a1,#a2,#a3,#a4,#a5,#a6,#a7,#a8{
     color: rgb(231,227,226);
   }
   #img1{
     max-width: 100px;
     max-height: 65px;
+  }
+
+  img{
+    max-width: 200px;
+    max-height: 200px;
   }

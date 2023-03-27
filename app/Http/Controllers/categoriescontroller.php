@@ -38,14 +38,21 @@ class categoriescontroller extends Controller
         return view('ua.catmod', compact('category'));
     }
 
-    public function update(Request $request, category $category){
+    public function update(categoriesrequest $request, category $category){
+
+        $request->validated();
+
         $category->categoria_nombre = $request->categoria_nombre;
         $category->categoria_descripcion =$request->categoria_descripcion;
 
-        return $category;
-        //$category->save();
+        
+        $category->save();
 
-        //return redirect()->route('cat.show');
+        return redirect()->route('cat.show');
+    }
+    public function destroy(category $category){
+        $category->delete();
+        return back()->with('success','La categoria se elimino con exito');
     }
 
 }

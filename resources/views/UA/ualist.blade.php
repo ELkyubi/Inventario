@@ -12,7 +12,10 @@
         <th scope="col">Ubicación</th>
         <th scope="col">Encargado</th>
         <th scope="col">Productos</th>
-        <th scope="col=2">Opciones</th>
+        @auth
+        <th colspan="2">Opciones</th>
+        @endauth
+        
       </tr>
     </thead>
     <tbody>
@@ -24,22 +27,22 @@
           <td>{{ $ua->ua_encargado }}</td>
           <td>
 
-            <button typer="button" class="btn btn-primary">ver productos</button></td>
-          </td>
+            <a typer="button" href="/UA/filtroua/{{ $ua->id }}" class="btn btn-primary">ver productos</a></td>
+          
+          @auth
           <td>
             <a href="/UA/listaua/{{$ua->id}}/edit" typer="button" class="btn btn-primary">Modificar</a>
-          <td><button typer="button" class="btn btn-danger">Eliminar</button></td>
+          <td><form action="{{ route('ua.delete', $ua->id) }}" onsubmit="return confirm('¿Seguro que quiere eliminar esta unidad administrativa? !Todos los productos relacionados con ella tambien desaparecerán!')" method="POST">  
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger" >Eliminar</button>
+          </form></td>
+          </td>
+          @endauth
+         
         </tr>
       @endforeach
     </tbody>
   </table>
-  <div class="btn-toolbar justify-content-md-center" role="toolbar" aria-label="Toolbar with button groups">
-    <div class="btn-group me-2" role="group" aria-label="First group">
-      <button type="button" class="btn btn-primary">1</button>
-      <button type="button" class="btn btn-primary">2</button>
-      <button type="button" class="btn btn-primary">3</button>
-      <button type="button" class="btn btn-primary">4</button>
-    </div>
-  </div>
 
 @endsection

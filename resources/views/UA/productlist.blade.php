@@ -5,34 +5,38 @@
       <!--Section: Content-->
       <section class="text-center text-md-start">
         <h1 class="mb-5"><strong>Productos</strong></h1>
+      </section>
         @foreach ( $products as $product)
             <!-- Post -->
-            <form method="POST">
-              @csrf
-              @method('put')
-        <div class="row">
-            <div class="col-md-4 mb-4">
-              <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
-                <img src="{{ $product->foto }}" class="img-fluid" />
-                <a href="#!">
-                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
-              </div>
+            <div class="container mt-5 mb-5" >
+              <div class="d-flex justify-content-center row">
+                  <div class="col-md-15">
+                      <div class="row p-2 border rounded" style="background-color: rgb(0, 105, 65)">
+                          <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" style="width: 100%" src="{{ $product->foto }}"></div>
+                          <div class="col-md-6 mt-1">
+                              <h5 style="color: rgb(231,227,226)">{{ $product->nombre }}</h5>
+                              <div class="d-flex flex-row">
+                                  <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span style="color: rgb(231,227,226)"><strong>Categoria:</strong>{{ $product->category->categoria_nombre}}</span>
+                              </div>
+                              <div class="mt-1 mb-1 spec-1"><span style="color: rgb(231,227,226)"><strong>Unidad administrativa:</strong>{{ $product->ua->ua_nombre }}</span><span><br></span></div>
+                              <div class="mt-1 mb-1 spec-1"><span style="color: rgb(231,227,226)"><strong>Fecha de ingreso:</strong>{{ $product->fech_ingr }}</span><span class="dot"></span><span>      </span><span class="dot"></span><span style="color: rgb(231,227,226)"><strong>Fecha de salida:</strong>{{ $product->fech_egr }}<br></span></div>
+                              <p class="text-justify text-break para mb-0" style="color: rgb(231,227,226)"><strong>Observaciones:</strong>{{ $product->observacion }}</p>
+                          </div>
+                          <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                              <div class="d-flex flex-row align-items-center">
+                                  <h4 class="mr-1" style="color: rgb(231,227,226)"><strong>Stock:</strong>{{ $product->stock }}</h4>
+                              </div>
+                              <h6 style="color: rgb(231,227,226)"><strong>Tipo de Unidad:</strong>{{ $product->unidades }}</h6>
+                              @auth
+                              <div class="d-flex flex-column mt-4"><a href="/UA/listaproducto/{{ $product->id }}/edit" style="background-color: rgb(167, 130, 82); border-color: rgb(255, 255, 255);" class="btn btn-primary btn-sm" type="button">Modificar</a>
+                              </div>
+                              @endauth
+                              
+                          </div>
+                        </div>
+                    </div>
+                  </div>
             </div>
-  
-            <div class="col-md-8 mb-4">
-              <h5>{{ $product->nombre }}</h5>
-              <p>
-                <strong>Stock:</strong>{{ $product->stock }}<strong>Tipo de Unidad:</strong>{{ $product->unidades }}<br>
-                <strong>Categoria:</strong>{{ $product->category->categoria_nombre}}<strong>Unidad administrativa:</strong>{{ $product->ua->ua_nombre }}<br>
-                <strong>Fecha de ingreso:</strong>{{ $product->fech_ingr }}<strong>Fecha de salida:</strong>{{ $product->fech_egr }}<br>
-                <strong>Observaciones:</strong>{{ $product->observacion }}
-
-              </p>
-  
-              <a type="button" href="/UA/listaproducto/{{ $product->id }}/edit" class="btn btn-primary">Modificar</a>
-            </div>
-          </div>
         @endforeach
           {{ $products->links() }}
       <!-- Pagination -->

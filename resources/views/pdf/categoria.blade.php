@@ -5,16 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style type="text/css">
+      * {
+          font-family: Verdana, Arial, sans-serif;
+      }
+      table{
+          font-size: small;
+      }
+      tfoot tr td{
+          font-weight: bold;
+          font-size: x-small;
+      }
+      .gray {
+          background-color: lightgray
+      }
+  </style>
 </head>
 <body>
-    <div class="container-fluid">
-        @foreach ($category as $categori)
-        <h1 class="center">Categoria: {{ $categori->categoria_nombre }}</h1>
-        @endforeach
-        
-</div>
-<table class="table">
-    <thead>
+  <table width="100%">
+    <tr>
+        <td valign="top"><img src="assets\Conalep-logo.png" alt="" width="150"/></td>
+        <td align="right">
+            <h2>Conalep Campeche</h2>
+            <pre>
+                Dirección general
+                Area de control de inventario
+                Reporte por categoría
+                @foreach ($category as $category)
+                Categoria: {{ $category->categoria_nombre }}
+                @endforeach
+            </pre>
+        </td>
+    </tr>
+  </table>
+<table width="100%">
+    <thead style="background-color: lightgrey; text-aligment: center">
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Tipo de Unidad</th>
@@ -22,7 +47,6 @@
         <th scope="col">Unidad Administrativa</th>
         <th scope="col">Fecha ingreso</th>
         <th scope="col">Fecha salida</th>
-        <th scope="col">Observaciones</th>
       </tr>
     </thead>
     <tbody>
@@ -33,8 +57,7 @@
           <td>{{ $product->stock }}</td>
           <td>{{ $product->ua->ua_nombre }}</td>
           <td>{{ $product->fech_ingr }}</td>
-          <td>{{ $product->fech_egr }}</td>
-          <td>{{ $product->observacion }}</td>
+          <td  align="left">{{ $product->fech_egr }}</td>
       @endforeach
     </tbody>
   </table>

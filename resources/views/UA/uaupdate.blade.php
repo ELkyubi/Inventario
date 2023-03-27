@@ -7,7 +7,19 @@
 </div>
 
 <div class="container" style="margin-top:30px">
+  @if ($errors->any())
+  <div style="margin-top:10px" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <lu>
+      @foreach ( $errors->all() as $error )
+     <li> {{ $error }} </li>
+    @endforeach
+    </lu>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  </button>
+  </div>
+@endif
     <form  method="POST" class="row g-3 needs-validation" validate>
+
       @csrf
       @method('put')
         <div class="col-md-4">

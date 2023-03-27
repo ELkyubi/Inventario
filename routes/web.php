@@ -31,16 +31,22 @@ Route::get('/logout', [logot_con::class, 'logout'])->name('home.logout');
 Route::controller(userdatacontroller::class)->group(function () {
     //Route::get('/', home::class);
     //Route::post('/login','auth')->name('login.auth');
-    Route::get('/UA', 'index');
+    Route::get('/UA', 'index')->name('Home');
+    Route::get('/UA/modificarusuario/{user}', 'edit')->name('user.edit');
     Route::get('/UA/altausuario', 'create');
     Route::get('/UA/listausuario', 'show');
+    Route::delete('/UA/listausuario/{user}', 'destroy')->name('user.delete');
+    Route::put('/UA/modificarusuario/{user}', 'update')->name('user.update');
     Route::post('/UA/altausuario', 'register')->name('usuarios.register') ;
+    
+    
 });
 
 Route::controller(categoriescontroller::class)->group(function () {
     Route::get('/UA/altacategoria', 'create');
     Route::get('/UA/listacategoria', 'show')->name('cat.show');
     Route::get('/UA/listacategoria/{category}/edit', 'edit')->name('cat.edit');
+    Route::delete('/UA/listacategoria/{category}', 'destroy')->name('cat.delete');
     Route::post('/UA/altacategoria', 'store')->name('cat.store') ;
     Route::put('/UA/listacategoria/{category}/edit', 'update')->name('cat.update');
 });
@@ -51,6 +57,7 @@ Route::controller(uacontroller::class)->group(function(){
     Route::get('/UA/listaua/{ua}/edit', 'edit')->name('ua.edit');
     Route::post('/UA/altaua', 'store')->name('ua.store') ;
     Route::put('/UA/listaua/{ua}/edit', 'update')->name('ua.update');
+    Route::delete('/UA/listaua/{ua}', 'destroy')->name('ua.delete');
 });
 
 Route::controller(productcontroller::class)->group(function(){
@@ -59,6 +66,7 @@ Route::controller(productcontroller::class)->group(function(){
     Route::get('/UA/listaproductobajas', 'showdown')->name('product.showdown');
     Route::post('/UA/altaproducto', 'store')->name('product.store');
     Route::put('/UA/listaproducto', 'down')->name('product.down');
+    Route::delete('/UA/listaproductobajas/{product}', 'destroy')->name('product.delete');
     Route::get('/UA/listaproducto/{product}/edit', 'edit')->name('product.edit');
     Route::put('/UA/listaproducto/{product}/edit', 'update')->name('product.update');
     Route::get('/UA/filtrocategoria','filt_cat');
@@ -72,6 +80,10 @@ Route::controller(pdfcontroler::class)->group(function(){
     Route::post('/UA/reportes', 'pdfcat')->name('pdf.cat');
     Route::get('/UA/reportes', 'index'); 
     Route::post('/UA/reportes/ua', 'pdfua')->name('pdf.ua');
+    Route::post('/UA/reportes/ingr', 'pdfingr')->name('pdf.ingr');
+    Route::post('/UA/reportes/egr', 'pdfegr')->name('pdf.egr');
+    Route::post('/UA/reportes/bajas', 'pdfbajas')->name('pdf.bajas');
+    Route::post('/UA/reportes/general', 'pdfgeneral')->name('pdf.general');
     
 });
 

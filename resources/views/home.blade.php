@@ -11,10 +11,10 @@
 </head>
 <body class="body">
   @auth
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar sticky-top navbar-expand-lg">
     <div class="container-fluid">
       <img class="navbar-brand" id="img1" src="\Images\Conalep-logo.png" alt="Navico">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button // class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -54,7 +54,6 @@
               <li><a class="dropdown-item" href="/UA/listaproducto">Lista</a></li>
               <li><a class="dropdown-item" href="/UA/listaproductobajas">Lista de bajas</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Buscar por Nombre</a></li>
               <li><a class="dropdown-item" href="/UA/filtroua">Filtrar por Unidad administrativa</a></li>
               <li><a class="dropdown-item" href="/UA/filtrocategoria">Filtrar por Categoria</a></li>
             </ul>
@@ -64,7 +63,8 @@
           </li>
         </ul>
         <form class="d-flex">
-          <button class="btn btn-outline-success" type="submit">Mi cuenta</button>
+           
+          <a class="btn btn-outline-success" {{ $user=Auth::user() }} href="/UA/modificarusuario/{{ $user->id }}" >Mi cuenta</a>
             <a class="btn btn-outline-danger" href="/logout">Salir</a>
         </form>
       </div>
@@ -84,12 +84,6 @@
             <a class="nav-link" aria-current="page"  id="a1" href="/UA">Inicio</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="a2" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Usuarios</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/UA/listausuario">Lista</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="a3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Unidades administrativas</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/UA/listaua">Lista</a></li>
@@ -106,19 +100,12 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/UA/listaproducto">Lista</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Buscar por Nombre</a></li>
-              <li><a class="dropdown-item" href="#">Filtrar por Unidad administrativa</a></li>
-              <li><a class="dropdown-item" href="#">Filtrar por Categoria</a></li>
+              <li><a class="dropdown-item" href="/UA/filtroua">Filtrar por Unidad administrativa</a></li>
+              <li><a class="dropdown-item" href="/UA/filtrocategoria">Filtrar por Categoria</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="a6" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Reportes</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">General</a></li>
-              <li><a class="dropdown-item" href="#">Por categoria</a></li>
-              <li><a class="dropdown-item" href="#">Por Unidad administrativa</a></li>
-              <li><a class="dropdown-item" href="#">Por fecha</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page"  id="a1" href="/UA/reportes">Reportes</a>
           </li>
         </ul>
         <form class="d-flex">

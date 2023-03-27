@@ -26,7 +26,7 @@ class productcontroller extends Controller
         $ruta= storage_path().'/app/public/imagenes/'.$nombre;
 
         Image::make($request->file('file'))
-        ->resize(1200,null,function($constraint) {
+        ->resize(300,300,function($constraint) {
             $constraint->aspectRatio();
         })
         
@@ -129,6 +129,12 @@ class productcontroller extends Controller
 
     }
 
+    public function destroy (product $product){
+        $product->delete();
+
+        return back()->with('success','El producto se elimino con exito');
+    }
+
     public function filt_cat(){
         $categories=category::all();
         return view('ua.filtrocat',compact('categories'));
@@ -136,7 +142,8 @@ class productcontroller extends Controller
     public function fetch_cat(category $category){ 
         //$catid=$category->id;
         $categories=category::all();
-        $products = product::with(['ua','category'])->where('cat_id', $category->id)->get();
+        $products = product::with(['ua','category'])->where('cat_id', $category->id)->where('Estado','Activo')->paginate(10);
+
         //return $catid;
         //return $products;
         return view('ua.filtrocatres', compact('products', 'categories'));
@@ -146,13 +153,15 @@ class productcontroller extends Controller
         $uas=ua::all();
         return view('ua.filtroua',compact('uas'));
     }
+
     public function fetch_ua(ua $ua){ 
         //$catid=$category->id;
         $uas=ua::all();
-        $products = product::with(['ua','category'])->where('ua_id', $ua->id)->get();
+        $products = product::with(['ua','category'])->where('ua_id', $ua->id)->where('Estado','Activo')->paginate(10);
         //return $catid;
         //return $products;
         return view('ua.filtrouares', compact('products', 'uas'));
     }
+
 
 }

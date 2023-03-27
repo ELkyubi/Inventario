@@ -30,24 +30,22 @@
             <pre>
                 Dirección general
                 Area de control de inventario
-                Reporte por unidad administrativa
-                @foreach ($ua as $uua)
-                Unidad administrativa: {{ $uua->ua_nombre }}
-                @endforeach
+                Reporte productos entregados
+                Del:{{ $from }} Al: {{ $to }}
             </pre>
         </td>
     </tr>
   </table>
 <table width="100%">
-    <thead>
+    <thead style="background-color: lightgrey; text-aligment: center">
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Tipo de Unidad</th>
         <th scope="col">Stock</th>
-        <th scope="col">Categoria</th>
+        <th scope="col">Categoría</th>
+        <th scope="col">Unidad Administrativa</th>
         <th scope="col">Fecha ingreso</th>
         <th scope="col">Fecha salida</th>
-       
       </tr>
     </thead>
     <tbody>
@@ -57,9 +55,9 @@
           <td>{{ $product->unidades }}</td>
           <td>{{ $product->stock }}</td>
           <td>{{ $product->category->categoria_nombre }}</td>
+          <td>{{ $product->ua->ua_nombre }}</td>
           <td>{{ $product->fech_ingr }}</td>
           <td align="left">{{ $product->fech_egr }}</td>
-          
       @endforeach
     </tbody>
   </table>
